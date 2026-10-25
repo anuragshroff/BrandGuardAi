@@ -8,6 +8,10 @@ tone & vocabulary, factual claims, visual compliance and accessibility — and r
 explainable findings with an exact guideline clause citation and a non-destructive fix.
 Nothing is auto-published: a Manager/Admin/Legal role passes the approval gate.
 
+**Round 2 pack:** [`docs/ROUND-2-SUBMISSION.md`](./docs/ROUND-2-SUBMISSION.md) (feature list,
+technology, plan changes, three Round 3 improvements) · [`docs/DEPLOY.md`](./docs/DEPLOY.md)
+(one-URL deployment and private-window checklist) · `docs/BrandGuard-AI-Round-2-Submission.pdf`.
+
 ---
 
 ## Stack
@@ -201,7 +205,10 @@ frontend/
   app/               App Router pages: workspace + insights
   components/        header/search palette, split-pane workspace, findings, analytics
   lib/               typed API client, types, sample draft
-scripts/dev.ps1      launch both services
+docs/                Round 2 submission (Markdown + PDF) and deployment guide
+Dockerfile           single image: Next static export served by FastAPI
+render.yaml          free-tier Render blueprint
+scripts/             dev launcher + submission PDF builder
 ```
 
 ---
