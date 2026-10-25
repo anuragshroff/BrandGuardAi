@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: brandguard-ai
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: BRANDGUARD_SEED_DEMO
+        value: "1"

@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# dev / test
+pytest>=8.3.0
+httpx>=0.28.0
+markdown>=3.7

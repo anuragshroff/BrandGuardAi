@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+next-env.d.ts
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# local databases
+backend/data/
+*.db
+*.sqlite3
+
+# env
+.env
+.env.local
+.env*.local
+
+# misc
+.DS_Store
+Thumbs.db
+*.log
+coverage/
+.vscode/
+.idea/
+
+# generated submission artefacts
+docs/_pdf_preview/
+docs/*.html
+
