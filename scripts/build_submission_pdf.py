@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs" / "ROUND-2-SUBMISSION.md"
 HTML_OUT = ROOT / "docs" / "BrandGuard-AI-Round-2-Submission.html"
 PDF_OUT = ROOT / "docs" / "BrandGuard-AI-Round-2-Submission.pdf"
+DRAFT_PDF_OUT = ROOT / "docs" / "BrandGuard-AI-Round-2-Submission-DRAFT.pdf"
 
 EDGE_CANDIDATES = [
     Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
@@ -182,7 +183,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--demo-url", default="", help="Public live demo URL")
     parser.add_argument("--repo-url", default="", help="Public source repository URL")
-    parser.add_argument("--out", default=str(PDF_OUT))
+    parser.add_argument("--out", default="", help="Optional output PDF path")
     args = parser.parse_args()
 
     text = SOURCE.read_text(encoding="utf-8")
@@ -190,13 +191,18 @@ def main() -> None:
     repo = args.repo_url.strip() or "Pending push — add public repository URL"
     text = text.replace("{{DEMO_URL}}", demo).replace("{{REPO_URL}}", repo)
 
-    if not args.demo_url or not args.repo_url:
-        print("WARNING: generating with placeholder links. Re-run with --demo-url and --repo-url before submitting.")
+    complete = bool(args.demo_url and args.repo_url)
+    if args.out:
+        out_path = Path(args.out).resolve()
+    else:
+        out_path = PDF_OUT if complete else DRAFT_PDF_OUT
+
+    if not complete:
+        print("WARNING: placeholders used. Writing a DRAFT PDF; add --demo-url and --repo-url for the final file.")
 
     HTML_OUT.write_text(build_html(text), encoding="utf-8")
 
     browser = find_browser()
-    out_path = Path(args.out).resolve()
     out_path.parent.mkdir(parents=True, exist_ok=True)
     command = [
         str(browser),

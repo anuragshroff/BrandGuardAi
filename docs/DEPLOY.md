@@ -128,6 +128,22 @@ If every box is ticked, the link satisfies the "anyone can open it without signi
 
 ---
 
+## Finalise the submission PDF
+
+Once both links exist, regenerate the PDF so the cover contains the real URLs:
+
+```powershell
+.\backend\.venv\Scripts\python.exe scripts\build_submission_pdf.py `
+  --demo-url https://your-service.onrender.com `
+  --repo-url https://github.com/your-username/brandguard-ai
+```
+
+This writes `docs/BrandGuard-AI-Round-2-Submission.pdf`. Without both arguments the script writes
+a clearly named `-DRAFT.pdf` instead, so a placeholder PDF cannot be submitted by accident. Upload
+the final PDF to the Round 2 form.
+
+---
+
 ## Troubleshooting
 
 | Symptom | Cause / fix |

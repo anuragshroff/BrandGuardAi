@@ -10,7 +10,8 @@ Nothing is auto-published: a Manager/Admin/Legal role passes the approval gate.
 
 **Round 2 pack:** [`docs/ROUND-2-SUBMISSION.md`](./docs/ROUND-2-SUBMISSION.md) (feature list,
 technology, plan changes, three Round 3 improvements) · [`docs/DEPLOY.md`](./docs/DEPLOY.md)
-(one-URL deployment and private-window checklist) · `docs/BrandGuard-AI-Round-2-Submission.pdf`.
+(one-URL deployment and private-window checklist) · `docs/BrandGuard-AI-Round-2-Submission-DRAFT.pdf`
+(regenerated with final links by `scripts/build_submission_pdf.py`).
 
 ---
 
